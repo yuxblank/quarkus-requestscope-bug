@@ -1,0 +1,16 @@
+package com.rgigroup.quarkuscve
+
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
+import javax.ws.rs.GET
+import javax.ws.rs.POST
+import javax.ws.rs.Path
+
+@RegisterRestClient(baseUri = "http://localhost:8083")
+@RegisterProvider(ClientInterceptor::class)
+interface RestClient2 {
+
+    @POST
+    @Path("/example2")
+    fun getExample(): String
+}
